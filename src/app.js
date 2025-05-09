@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const { env } = require('./config');
 
 const app = express();
 
@@ -12,7 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Basic route
 app.get('/', (req, res) => {
-  res.json({ message: 'License Plate Recognition API' });
+  res.json({ 
+    message: 'License Plate Recognition API',
+    environment: process.env.NODE_ENV || 'development'
+  });
 });
 
 // Error handling middleware

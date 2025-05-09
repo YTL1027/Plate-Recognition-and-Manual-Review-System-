@@ -1,11 +1,8 @@
 const app = require('./app');
-const dotenv = require('dotenv');
+const { env } = require('./config');
 
-// Load environment variables
-dotenv.config();
-
-const PORT = process.env.PORT || 3000;
+const PORT = env.port;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
+}); 
